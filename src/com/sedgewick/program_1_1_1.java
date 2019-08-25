@@ -1,8 +1,7 @@
 package com.sedgewick;
 
-public class Main {
-
+public class program_1_1_1 {
     public static void main(String[] args) {
-        System.out.println(args[0]);
+        System.out.println("Hello world");
     }
 }

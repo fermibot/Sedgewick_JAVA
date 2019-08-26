@@ -10,19 +10,24 @@ public class area_of_circle {
         return (float) Math.pow(Math.pow(xCoordinate, 2) + Math.pow(yCoordinate, 2), 0.5);
     }
 
+    private static float estimate_circle_area(double radius, int nPoints) {
+        int within_circle = 0;
+        double area_of_circle, area_of_square, radius_square;
+        area_of_square = Math.pow(2 * radius, 2);
+        radius_square = Math.pow(radius, 2);
+        for (int i = 0; i < nPoints; i++) {
+            if (radius(randomReal(-radius, radius), randomReal(-radius, radius)) <= radius_square) {
+                within_circle++;
+            }
+        }
+        area_of_circle = (area_of_square * within_circle) / nPoints;
+        return (float) area_of_circle;
+    }
+
     public static void main(String[] args) {
         for (int t = 0; t < 100; t++) {
-            int within_circle = 0, max_points = 1000;
-            double radius = 1.0, area_proportion, area_of_square, radius_square;
-            area_of_square = Math.pow(2 * radius, 2);
-            radius_square = Math.pow(radius, 2);
-            for (int i = 0; i < max_points; i++) {
-                if (radius(randomReal(-radius, radius), randomReal(-radius, radius)) <= radius_square) {
-                    within_circle++;
-                }
-            }
-            area_proportion = (area_of_square * within_circle) / max_points;
-            System.out.println("Area of the radius = " + area_proportion);
+            float area_of_circle = estimate_circle_area(1, 100);
+            System.out.println("Estimated area of the circle (radius = 1 units) " + area_of_circle + " unit.sq");
         }
     }
 }

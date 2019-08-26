@@ -2,13 +2,10 @@ package com.sedgewick;
 
 public class program_1_2_1 {
     public static void main(String[] args) {
-        String ruler1 = "1";
-        String ruler2 = ruler1 + " 2 " + ruler1;
-        String ruler3 = ruler2 + " 3 " + ruler2;
-        String ruler4 = ruler3 + " 4 " + ruler3;
-        System.out.println(ruler1);
-        System.out.println(ruler2);
-        System.out.println(ruler3);
-        System.out.println(ruler4);
+        String ruler = "1";
+        for (int i = 2; i < 10; i++) {
+            ruler = ruler + i + ruler;
+            System.out.println(ruler);
+        }
     }
 }

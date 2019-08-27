@@ -1,10 +1,9 @@
 package com.sedgewick;
 
+import static com.sedgewick.custom_functions.randomReal;
+
 public class area_of_circle {
 
-    private static float randomReal(double min, double max) {
-        return (float) (min + (Math.random() * (max - min)));
-    }
 
     private static float radius(float xCoordinate, float yCoordinate) {
         return (float) Math.pow(Math.pow(xCoordinate, 2) + Math.pow(yCoordinate, 2), 0.5);

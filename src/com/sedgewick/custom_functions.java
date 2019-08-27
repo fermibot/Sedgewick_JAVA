@@ -8,4 +8,5 @@ class custom_functions {
     static float randomReal(double min, double max) {
         return (float) (min + (Math.random() * (max - min)));
     }
+
 }

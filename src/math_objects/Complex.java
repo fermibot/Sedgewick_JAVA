@@ -1,4 +1,4 @@
-package com.sedgewick;
+package math_objects;
 
 public class Complex {
     private double real;

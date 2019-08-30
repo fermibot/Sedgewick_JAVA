@@ -1,4 +1,4 @@
-package com.sedgewick;
+package math_objects;
 
 public class Rational {
     private float n;

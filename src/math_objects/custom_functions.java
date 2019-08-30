@@ -1,4 +1,4 @@
-package com.sedgewick;
+package math_objects;
 
 import static java.lang.Math.exp;
 

@@ -1,6 +1,6 @@
 package com.sedgewick;
 
-import static com.sedgewick.custom_functions.compound_interest;
+import static math_objects.custom_functions.compound_interest;
 
 public class program_1_2_24_e {
     public static void main(String[] args) {

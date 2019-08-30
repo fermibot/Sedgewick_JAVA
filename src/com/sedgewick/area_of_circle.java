@@ -1,6 +1,6 @@
 package com.sedgewick;
 
-import static com.sedgewick.custom_functions.randomReal;
+import static math_objects.custom_functions.randomReal;
 
 public class area_of_circle {
 

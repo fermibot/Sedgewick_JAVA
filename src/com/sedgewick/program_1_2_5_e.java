@@ -1,6 +1,6 @@
 package com.sedgewick;
 
-import static com.sedgewick.custom_functions.xor;
+import static math_objects.custom_functions.xor;
 
 public class program_1_2_5_e {
     public static void main(String[] args) {

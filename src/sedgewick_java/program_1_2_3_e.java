@@ -1,4 +1,4 @@
-package com.sedgewick;
+package sedgewick_java;
 
 public class program_1_2_3_e {
     private static boolean expression(boolean a, boolean b) {

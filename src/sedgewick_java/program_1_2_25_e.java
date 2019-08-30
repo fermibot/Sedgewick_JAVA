@@ -1,6 +1,6 @@
-package com.sedgewick;
+package sedgewick_java;
 
-import static math_objects.custom_functions.wind_chill;
+import static com.sedgewick.math_objects.custom_functions.wind_chill;
 
 public class program_1_2_25_e {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.sedgewick;
+package sedgewick_java;
 
 public class program_1_2_2_e {
     private static double sine_cosine_square(double theta) {

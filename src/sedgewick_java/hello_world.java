@@ -1,6 +1,6 @@
-package com.sedgewick;
+package sedgewick_java;
 
-public class program_1_1_2 {
+public class hello_world {
     public static void main(String[] args) {
         System.out.print("Hi, ");
         System.out.print(args[0]);

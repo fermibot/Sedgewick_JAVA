@@ -19,4 +19,16 @@ public class RandomFunctions {
     public static double RandomGaussian() {
         return RandomGaussian(1)[0];
     }
+
+    public static double[] RandomReal(double minimum, double maximum, int sampleSize) {
+        double[] sample = new double[sampleSize];
+        for (int i = 0; i < sampleSize; i++) {
+            sample[i] = minimum + (maximum - minimum) * random();
+        }
+        return sample;
+    }
+
+    public static double RandomReal(double minimum, double maximum) {
+        return RandomReal(minimum, maximum, 1)[0];
+    }
 }

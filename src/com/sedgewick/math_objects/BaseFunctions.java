@@ -1,5 +1,7 @@
 package com.sedgewick.math_objects;
 
+import javax.swing.*;
+
 public class BaseFunctions {
     public static int GCD(int u, int v) {
         int t;
@@ -24,14 +26,23 @@ public class BaseFunctions {
         return gcd;
     }
 
-    public static void main(String[] args) {
-        System.out.println(GCD(10, 20));
-
-        int intSize = 10;
-        int[] integers = new int[intSize];
-        for (int i = 0; i < intSize; i++) {
-            integers[i] = i * 10;
+    public static void EratosthenesPrimes(int N) {
+        int i, j;
+        int[] a = new int[N + 1];
+        for (a[1] = 0, i = 2; i <= N; i++) a[i] = 1;
+        for (i = 2; i <= N / 2; i++) {
+            for (j = 2; j <= N / i; j++) {
+                a[i * j] = 0;
+            }
         }
-        System.out.println(GCD(integers));
+        for (i = 1; i <= N; i++) {
+            if (a[i] == 1) {
+                System.out.println(i);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        EratosthenesPrimes(1000);
     }
 }

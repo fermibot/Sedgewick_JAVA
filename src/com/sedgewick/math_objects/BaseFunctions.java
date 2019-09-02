@@ -5,7 +5,7 @@ public class BaseFunctions {
         int t;
         if (u != v) {
             while (u > 0) {
-                if (u > 0) {
+                if (u < v) {
                     t = u;
                     u = v;
                     v = t;
@@ -32,6 +32,6 @@ public class BaseFunctions {
         for (int i = 0; i < intSize; i++) {
             integers[i] = i * 10;
         }
-
+        System.out.println(GCD(integers));
     }
 }

@@ -37,10 +37,12 @@ public class Stack<Item> {
         String[] strings = {"to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is"};
         for (String string :
                 strings) {
-            if (string != "-") stack.push(string);
-            else if (!stack.isEmpty()) System.out.print(stack.pop() + " ");
+            if (!string.equals("-")) {
+                stack.push(string);
+            } else if (!string.isEmpty()) {
+                stack.pop();
+            }
         }
-        System.out.print("(" + stack.size() + " left on queue)");
+        System.out.println("(" + stack.size() + " left on stack)");
     }
-
 }

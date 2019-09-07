@@ -35,6 +35,13 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
         return item;
     }
 
+    public void setValue(Item value, int n) {
+        if (n <= N) {
+            a[n] = value;
+        }
+
+    }
+
     public Iterator<Item> iterator() {
         return new ReverseArrayIterator();
     }

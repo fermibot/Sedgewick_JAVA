@@ -2,7 +2,6 @@ package com.sedgewick.math_objects;
 
 import java.util.Iterator;
 
-import java.util.Iterator;
 
 public class ResizingArrayStack<Item> implements Iterable<Item> {
     private Item[] a = (Item[]) new Object[1]; // stack items
@@ -39,7 +38,20 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
         if (n <= N) {
             a[n] = value;
         }
+    }
 
+    public Item getValue(int n) {
+        Item getValue1 = a[N];
+        if (n <= N) {
+            getValue1 = a[n];
+        }
+        return getValue1;
+    }
+
+    public Item getLast() {
+        if (N != 0) {
+            return a[N - 1];
+        } else return null;
     }
 
     public Iterator<Item> iterator() {

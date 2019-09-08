@@ -1,15 +1,13 @@
 package com.sedgewick.math_objects;
 
-
 import static java.util.Arrays.asList;
 
 
 public class Parentheses<Item> {
     private static ResizingArrayStack<String> allChars = new ResizingArrayStack<>();
-    private static ResizingArrayStack<String> uniqueChars = new ResizingArrayStack<>();
     private static ResizingArrayStack<String> parentheses = new ResizingArrayStack<>();
 
-    private static String[] strings = {"[", "(", ")", "]", "{", "}", "{", "[", "(", ")", "(", ")", "]", "(", ")", "}"};
+    private static String[] strings = {"{", "[", "(", ")", "]", "{", "}", "{", "[", "(", ")", "(", ")", "]", "(", ")", "}"};
     private static String[] leftStrings = {"{", "[", "("};
     private static String[] rightStrings = {"}", "]", ")"};
 
@@ -27,35 +25,50 @@ public class Parentheses<Item> {
 
     public static void main(String[] args) {
         ListOperations listOperations = new ListOperations<>();
-        uniqueChars.push(strings[0]);
         for (String string :
                 strings) {
             allChars.push(string);
-
-            if (listOperations.MemberQ(uniqueChars, string)) {
-                continue;
-            }
-            uniqueChars.push(string);
         }
 
-        System.out.println(converse("{"));
+        int tracker = allChars.size();
+        for (String string :
+                allChars) {
+            boolean allNull = true;
 
-        String previous = strings[0];
-        parentheses.push(strings[0]);
-        for (int i = 1; i < strings.length; i++) {
-            String current = strings[i];
-            if (listOperations.MemberQ(asList(leftStrings), current)) {
-                parentheses.push(current);
-                previous = current;
-            } else if (listOperations.MemberQ(asList(rightStrings), current)) {
-                String converse1 = converse(current);
-                if (previous.equals(converse1)) {
-                    parentheses.pop();
-                    i++;
-                    previous = strings[i + 2];
-                } else if (!current.equals(converse1)) {
-                    System.out.println("List is unbalanced");
+            for (String allChar :
+                    allChars) {
+                allNull = allNull & (allChar == null);
+            }
+
+            if (!allNull) {
+                if (string == null) {
+                    continue;
+                } else if (listOperations.MemberQ(asList(rightStrings), string)) {
+                    System.out.println("Pushed::" + string);
+                    parentheses.push(string);
+                } else if (listOperations.MemberQ(asList(leftStrings), string)) {
+                    String converse1 = converse(parentheses.getLast());
+                    if (string.equals(converse1)) {
+                        System.out.println("Removed::" + parentheses.pop());
+                        allChars.setValue(null, tracker);
+                        if (tracker != 0) {
+                            allChars.setValue(null, tracker - 1);
+                        }
+                    }
                 }
+                if (tracker > 0) {
+                    tracker--;
+                }
+
+                System.out.print("CurrentList::");
+                for (String allChar :
+                        allChars) {
+                    System.out.print(allChar + "");
+                }
+                System.out.println("\n");
+            } else {
+                System.out.println("The list is balanced");
+                break;
             }
         }
     }
